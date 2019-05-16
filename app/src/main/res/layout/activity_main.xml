@@ -52,6 +52,7 @@
 
 
     <RadioGroup
+        android:id="@+id/gender_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -87,7 +88,7 @@
             android:text="초기화" />
 
         <Button
-            android:id="@+id/sing_up_button"
+            android:id="@+id/sign_up_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

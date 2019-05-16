@@ -1,12 +1,13 @@
 package com.hwancom.study_intent;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class MemberActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private TextView resultTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,34 +16,30 @@ public class MemberActivity extends AppCompatActivity implements View.OnClickLis
 
         if (getIntent() != null) {
             String id = getIntent().getStringExtra("id");
-            String password = getIntent().getStringExtra("pwd");
+            String pwd = getIntent().getStringExtra("pwd");
+            String email = getIntent().getStringExtra("email");
+            String gender = getIntent().getStringExtra("gender");
 
-            Toast.makeText(this, "ID : " + id + ", Password : " + password, Toast.LENGTH_SHORT).show();
+            String result = String.format("아이디 : %s\n비밀번호 : %s\nE-mail : %s\n성별 : %s",
+                    id,
+                    pwd,
+                    email,
+                    gender);
 
-            findViewById(R.id.customerButton).setOnClickListener(this);
-            findViewById(R.id.salesButton).setOnClickListener(this);
-            findViewById(R.id.goodsButton).setOnClickListener(this);
+            resultTextView = findViewById(R.id.result_text_view);
+            resultTextView.setText(result);
         }
 
+        findViewById(R.id.ok_button).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
 
-        Intent intent = new Intent();
+        // Intent intent = new Intent();
+        // setResult(RESULT_OK, intent);
 
-        switch (view.getId()) {
-            case R.id.customerButton :
-                intent.putExtra("result", "고객 관리");
-                break;
-            case R.id.salesButton :
-                intent.putExtra("result", "매출 관리");
-                break;
-            case R.id.goodsButton :
-                intent.putExtra("result", "상품 관리");
-        }
-
-        setResult(RESULT_OK, intent);
-    finish();
+        setResult(RESULT_OK);
+        finish();
     }
 }
