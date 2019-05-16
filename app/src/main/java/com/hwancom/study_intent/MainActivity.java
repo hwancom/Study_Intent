@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -13,15 +14,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int REQUEST_CODE = 1000;
     private EditText mId;
     private EditText mPassword;
+    private EditText mRePassword;
+    private EditText mEmail;
+    private RadioButton mMale;
+    private RadioButton mFemale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mId = findViewById(R.id.idEditText);
-        mPassword = findViewById(R.id.passEditText);
-        findViewById(R.id.loginButton).setOnClickListener(this);
+        mId = findViewById(R.id.id_edit);
+        mPassword = findViewById(R.id.pwd_edit);
+        mRePassword = findViewById(R.id.re_pwd_edit);
+        mEmail = findViewById(R.id.email_edit);
+        mMale = findViewById(R.id.male_radio_button);
+        mFemale = findViewById(R.id.female_radio_button);
+
+
+        findViewById(R.id.reset_button).setOnClickListener(this);
+        findViewById(R.id.sing_up_button).setOnClickListener(this);
     }
 
     @Override
