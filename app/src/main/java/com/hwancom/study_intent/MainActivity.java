@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         }
 
         /** RadioGroup을 비운다 */
-        mGenderRadioGroup.clearCheck();
+        // mGenderRadioGroup.clearCheck();
+        /** clearCheck() 실행 오류로 주석처리 하였다. */
     }
 
     /** 가입 */
@@ -143,6 +144,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        reset();
 
         if (requestCode == REQUEST_CODE_SIGN_UP && resultCode == RESULT_OK) {
             Toast.makeText(this, "확인 버튼을 누르셨습니다.", Toast.LENGTH_SHORT).show();
